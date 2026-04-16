@@ -1,6 +1,6 @@
 'use strict';
 
-const { normalizeInput, scoreScheme, applyHardFilters, matchToSchemes } = require('./match-to-schemes');
+const { normalizeInput, scoreScheme, matchToSchemes } = require('./match-to-schemes');
 const fs = require('fs');
 const path = require('path');
 
@@ -114,24 +114,6 @@ describe('scoreScheme', () => {
     const entry = { keywords: ['cattle'] };
     const { score } = scoreScheme(['cat'], entry);
     expect(score).toBe(0);
-  });
-});
-
-describe('applyHardFilters', () => {
-  test('allows open schemes', () => {
-    expect(applyHardFilters({ status: 'open' })).toBe(true);
-  });
-
-  test('allows closed schemes (no longer filtered)', () => {
-    expect(applyHardFilters({ status: 'closed' })).toBe(true);
-  });
-
-  test('allows by_invitation schemes', () => {
-    expect(applyHardFilters({ status: 'by_invitation' })).toBe(true);
-  });
-
-  test('allows unknown status', () => {
-    expect(applyHardFilters({ status: 'unknown' })).toBe(true);
   });
 });
 

@@ -61,10 +61,6 @@ function scoreScheme(tokens, keywordEntry) {
   return { score: matched.length, matchedKeywords: matched };
 }
 
-function applyHardFilters() {
-  return true;
-}
-
 function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
   if (!input || typeof input !== 'string' || input.trim() === '') return [];
 
@@ -81,8 +77,6 @@ function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
   for (const keywordEntry of keywordSchemes) {
     const formattedScheme = schemeMap[keywordEntry.id];
     if (!formattedScheme) continue;
-    if (!applyHardFilters(formattedScheme)) continue;
-
     const { score, matchedKeywords } = scoreScheme(tokens, keywordEntry);
     if (score === 0) continue;
 
@@ -104,4 +98,4 @@ function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
   return results.slice(0, limit);
 }
 
-module.exports = { normalizeInput, scoreScheme, applyHardFilters, matchToSchemes };
+module.exports = { normalizeInput, scoreScheme, matchToSchemes };
