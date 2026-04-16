@@ -4,11 +4,15 @@
   "description": "A tool to help farmers find relevant funding schemes",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "express": "^4.21.0",
     "govuk-frontend": "^5.10.2",
     "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
   }
 }
