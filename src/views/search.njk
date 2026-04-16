@@ -1,4 +1,4 @@
-{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/tag/macro.njk" import govukTag %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
@@ -29,16 +29,17 @@
       <p class="govuk-body">Describe what you need funding for and we will show you relevant schemes.</p>
 
       <form method="post" action="/search" class="govuk-!-margin-bottom-8">
-        {{ govukInput({
+        {{ govukTextarea({
           id: "search-input",
           name: "input",
           label: {
-            text: "What do you need funding for?",
+            text: "Describe your farm and what you need funding for",
             classes: "govuk-label--m"
           },
           hint: {
-            text: "For example, planting hedgerows or improving soil health"
+            text: "You can use natural language. For example: 'I have 100 acres of farm with hens and need help improving housing' or 'Mixed farm looking to plant hedgerows and improve soil health'"
           },
+          rows: 6,
           value: input
         }) }}
 
