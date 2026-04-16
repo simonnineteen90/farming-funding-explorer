@@ -15,7 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 nunjucks.configure(
   [
     path.join(__dirname, 'views'),
-    path.join(__dirname, '..', 'node_modules', 'govuk-frontend', 'dist')
+    path.join(__dirname, 'node_modules', 'govuk-frontend', 'dist')
   ],
   {
     autoescape: true,
@@ -24,8 +24,8 @@ nunjucks.configure(
   }
 );
 
-app.use('/govuk', express.static(path.join(__dirname, '..', 'node_modules', 'govuk-frontend', 'dist', 'govuk')));
-app.use('/assets', express.static(path.join(__dirname, '..', 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'assets')));
+app.use('/govuk', express.static(path.join(__dirname, 'node_modules', 'govuk-frontend', 'dist', 'govuk')));
+app.use('/assets', express.static(path.join(__dirname, 'node_modules', 'govuk-frontend', 'dist', 'govuk', 'assets')));
 
 app.use('/', searchRoute);
 
