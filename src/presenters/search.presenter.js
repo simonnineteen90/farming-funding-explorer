@@ -33,11 +33,6 @@ function presentScheme(scheme) {
   };
 }
 
-function presentSearchPage({ input, schemes, errorMessage }) {
-  const normalizedInput = typeof input === 'string' ? input.trim() : '';
-  const presentedSchemes = Array.isArray(schemes) ? schemes.map(presentScheme) : [];
-  const searched = normalizedInput.length > 0;
-  const normalizedErrorMessage = typeof errorMessage === 'string' ? errorMessage.trim() : '';
 function presentStatusOption(statusKey, selectedStatuses) {
   const status = presentStatus(statusKey);
 
@@ -69,7 +64,6 @@ function presentSearchPage({ input, schemes, availableStatuses = [], selectedSta
     searched,
     resultCount: presentedSchemes.length,
     schemes: presentedSchemes,
-    errorMessage: normalizedErrorMessage
     filters,
     selectedStatusCount: normalizedSelectedStatuses.length
   };

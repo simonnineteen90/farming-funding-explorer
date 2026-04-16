@@ -118,7 +118,8 @@ async function searchSchemesFromNaturalLanguage(input) {
   logger.info('search', 'search.copilot.status', { enabled });
 
   if (!enabled) {
-    const result = { schemes: searchSchemes(normalizedInput), source: 'direct', rejection: null };
+    const schemes = matchToSchemes(normalizedInput, keywordData.schemes, allSchemes);
+    const result = { schemes, source: 'direct', rejection: null };
     logger.info('search', 'search.source', { source: result.source });
     return result;
   }
@@ -136,7 +137,7 @@ async function searchSchemesFromNaturalLanguage(input) {
   if (!getGithubToken()) {
     logger.info('search', 'search.source', { source: 'fallback', fallbackReason: ERROR_CODES.MISSING_TOKEN });
     return {
-      schemes: searchSchemes(normalizedInput),
+      schemes: matchToSchemes(normalizedInput, keywordData.schemes, allSchemes),
       source: 'fallback',
       fallbackReason: ERROR_CODES.MISSING_TOKEN,
       rejection: null
@@ -145,7 +146,7 @@ async function searchSchemesFromNaturalLanguage(input) {
 
   try {
     const keywords = await extractKeywordsWithCopilot(normalizedInput);
-    const schemes = matchToSchemes(keywords.join(' '), keywordSchemes, formattedSchemes);
+    const schemes = matchToSchemes(keywords.join(' '), keywordData.schemes, allSchemes);
     logger.info('search', 'search.source', { source: 'copilot' });
     return {
       schemes,
@@ -169,7 +170,7 @@ async function searchSchemesFromNaturalLanguage(input) {
     const fallbackReason = error && error.code ? error.code : ERROR_CODES.RUNTIME_FAILURE;
     logger.info('search', 'search.source', { source: 'fallback', fallbackReason });
     return {
-      schemes: searchSchemes(normalizedInput),
+      schemes: matchToSchemes(normalizedInput, keywordData.schemes, allSchemes),
       source: 'fallback',
       fallbackReason,
       rejection: null
