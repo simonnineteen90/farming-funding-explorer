@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "docker:build": "docker build -t farming-funding-explorer .",
-    "docker:start": "docker run --rm -p 3000:3000 farming-funding-explorer"
+    "docker:start": "docker run --name farming-funding-explorer --rm -p 3000:3000 farming-funding-explorer"
   },
   "dependencies": {
     "express": "^4.21.0"

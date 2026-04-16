@@ -1,11 +1,13 @@
-FROM node:22
+FROM node:22-slim
 
 WORKDIR /app
 
 COPY package*.json ./
 RUN npm install --omit=dev
 
-COPY . .
+COPY server.js ./
+COPY public ./public
+COPY data ./data
 
 EXPOSE 3000
 
