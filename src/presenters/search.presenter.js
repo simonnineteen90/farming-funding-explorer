@@ -21,6 +21,8 @@ function presentScheme(scheme) {
     description: scheme.description || 'No description available.',
     funding: scheme.grantValue || 'Not specified',
     url: scheme.url || '#',
+    linkTarget: '_blank',
+    linkRel: 'noopener noreferrer',
     statusText: status.text,
     statusClasses: status.classes
   };

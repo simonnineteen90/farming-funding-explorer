@@ -57,7 +57,7 @@
           {% for scheme in schemes %}
             <section class="govuk-!-margin-bottom-6">
               <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
-                <a href="{{ scheme.url }}" class="govuk-link">{{ scheme.name }}</a>
+                <a href="{{ scheme.url }}" target="{{ scheme.linkTarget }}" rel="{{ scheme.linkRel }}" class="govuk-link">{{ scheme.name }}</a>
               </h3>
               {{ govukTag({
                 text: scheme.statusText,
