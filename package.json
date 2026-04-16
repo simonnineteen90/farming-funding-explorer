@@ -2,11 +2,13 @@
   "name": "farming-funding-explorer",
   "version": "1.0.0",
   "description": "A tool to help farmers find relevant funding schemes",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "dependencies": {
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "govuk-frontend": "^5.10.2",
+    "nunjucks": "^3.2.4"
   }
 }
