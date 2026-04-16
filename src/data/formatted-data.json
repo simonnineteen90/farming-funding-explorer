@@ -190,6 +190,48 @@
       "notes": "Grant value: - up to 80% of felling costs per m3 - up to 40% of infrastructure costs",
       "description": "You can apply to the tree health pilot scheme to test different ways of slowing the spread of pests and diseases affecting trees in England. Grants are available for:",
       "url": "https://www.gov.uk/government/publications/tree-health-pilot-scheme-2024"
+    },
+    {
+      "id": "woodland-creation-planning-grant",
+      "name": "Woodland Creation Planning Grant (WCPG)",
+      "category": "Create or improve woodland and protect tree health",
+      "categoryId": "create-or-improve-woodland-and-protect-tree-health",
+      "status": "open",
+      "openDate": "all year round",
+      "grantValue": "up to £1,000 per hectare for design costs",
+      "description": "The Woodland Creation Planning Grant (WCPG) funds the design and preparation work needed before you plant new woodland, including surveys, ecology assessments, and a detailed planting plan.",
+      "url": "https://www.gov.uk/guidance/woodland-creation-planning-grant"
+    },
+    {
+      "id": "woodland-tree-health-grant",
+      "name": "Woodland Tree Health Grant",
+      "category": "Create or improve woodland and protect tree health",
+      "categoryId": "create-or-improve-woodland-and-protect-tree-health",
+      "status": "open",
+      "openDate": "all year round",
+      "description": "The Woodland Tree Health Grant helps woodland owners recover and restock woodlands affected by pests and diseases, covering felling, restocking, and infrastructure costs.",
+      "url": "https://www.gov.uk/guidance/tree-health-grants"
+    },
+    {
+      "id": "farming-innovation-programme",
+      "name": "Farming Innovation Programme (FIP)",
+      "category": "Invest in equipment, technology and infrastructure to increase productivity",
+      "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
+      "status": "closed",
+      "closingDate": "current rounds are closed",
+      "description": "The Farming Innovation Programme funded collaborative research, development, and demonstration projects to transform productivity, profitability, and sustainability in English farming and growing.",
+      "url": "https://www.gov.uk/government/collections/farming-innovation-programme"
+    },
+    {
+      "id": "delinked-payments",
+      "name": "Delinked Payments (replacing Basic Payment Scheme)",
+      "category": "Delinked payments",
+      "categoryId": "delinked-payments",
+      "status": "open",
+      "openDate": "payments issued annually",
+      "closingDate": "final payments in 2027",
+      "description": "Delinked payments are replacing the Basic Payment Scheme (BPS). Eligible farmers receive annual payments from 2024 to 2027 as part of the transition away from area-based subsidies.",
+      "url": "https://www.gov.uk/guidance/delinked-payments-replacing-the-basic-payment-scheme"
     }
   ]
 }
