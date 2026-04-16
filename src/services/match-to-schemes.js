@@ -1,5 +1,38 @@
 'use strict';
 
+const INJECTION_PATTERNS = [
+  /^\s*ignore\s+(all\s+)?previous\s+instructions/i,
+  /^\s*system\s*:/i,
+  /<\|im_start\|>/i,
+  /<\|im_end\|>/i,
+  /<\|endoftext\|>/i,
+  /\[INST\]/i,
+  /\[\/INST\]/i
+];
+
+function sanitiseForMatching(input) {
+  if (!input || typeof input !== 'string') return '';
+
+  let text = input;
+
+  // Strip markdown formatting
+  text = text
+    .replace(/#{1,6}\s/g, '')
+    .replace(/\*{1,2}([^*]+)\*{1,2}/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[([^\]]*)]\([^)]*\)/g, '$1');
+
+  // Detect and strip prompt injection patterns
+  for (const pattern of INJECTION_PATTERNS) {
+    if (pattern.test(text)) {
+      console.warn('Prompt injection pattern detected in search input');
+      text = text.replace(pattern, '');
+    }
+  }
+
+  return text.trim();
+}
+
 function normalizeText(text) {
   return text
     .toLowerCase()
@@ -64,7 +97,10 @@ function scoreScheme(tokens, keywordEntry) {
 function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
   if (!input || typeof input !== 'string' || input.trim() === '') return [];
 
-  const tokens = normalizeInput(input);
+  const sanitised = sanitiseForMatching(input);
+  if (!sanitised) return [];
+
+  const tokens = normalizeInput(sanitised);
   if (tokens.length === 0) return [];
 
   const schemeMap = {};
@@ -98,4 +134,4 @@ function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
   return results.slice(0, limit);
 }
 
-module.exports = { normalizeInput, scoreScheme, matchToSchemes };
+module.exports = { sanitiseForMatching, normalizeInput, scoreScheme, matchToSchemes };
