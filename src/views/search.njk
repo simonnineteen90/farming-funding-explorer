@@ -1,0 +1,92 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/tag/macro.njk" import govukTag %}
+
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ pageTitle }} - GOV.UK</title>
+  <link rel="stylesheet" href="/govuk/govuk-frontend.min.css">
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled';</script>
+
+  <header class="govuk-header" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__logo">
+        <a href="/" class="govuk-header__link govuk-header__link--homepage">
+          <span class="govuk-header__logotype-text">GOV.UK</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper" id="main-content">
+      <h1 class="govuk-heading-xl">Find funding for your farm</h1>
+      <p class="govuk-body">Describe what you need funding for and we will show you relevant schemes.</p>
+
+      <form method="post" action="/search" class="govuk-!-margin-bottom-8">
+        {{ govukInput({
+          id: "search-input",
+          name: "input",
+          label: {
+            text: "What do you need funding for?",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "For example, planting hedgerows or improving soil health"
+          },
+          value: input
+        }) }}
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+      </form>
+
+      {% if searched %}
+        {% if resultCount === 0 %}
+          <p class="govuk-body">No schemes found.</p>
+        {% else %}
+          <h2 class="govuk-heading-l">{{ resultCount }} schemes found</h2>
+
+          {% for scheme in schemes %}
+            <section class="govuk-!-margin-bottom-6">
+              <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+                <a href="{{ scheme.url }}" class="govuk-link">{{ scheme.name }}</a>
+              </h3>
+              {{ govukTag({
+                text: scheme.statusText,
+                classes: scheme.statusClasses
+              }) }}
+              <p class="govuk-body govuk-!-margin-top-2">{{ scheme.description }}</p>
+              <p class="govuk-body govuk-!-font-weight-bold">Funding: {{ scheme.funding }}</p>
+              <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-2">
+            </section>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+    </main>
+  </div>
+
+  <footer class="govuk-footer">
+    <div class="govuk-width-container">
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+          <span class="govuk-footer__licence-description">Built for a hackathon prototype.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/govuk/govuk-frontend.min.js"></script>
+  <script>
+    if (window.GOVUK && window.GOVUKFrontend) {
+      window.GOVUKFrontend.initAll();
+    }
+  </script>
+</body>
+</html>
