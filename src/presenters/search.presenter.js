@@ -13,6 +13,11 @@ function presentStatus(status) {
   };
 }
 
+function isAllowedUrl(url) {
+  if (!url || typeof url !== 'string') return false;
+  return url.startsWith('https://www.gov.uk/');
+}
+
 function presentScheme(scheme) {
   const status = presentStatus(scheme.status);
 
@@ -20,7 +25,7 @@ function presentScheme(scheme) {
     name: scheme.name || 'Unnamed scheme',
     description: scheme.description || 'No description available.',
     funding: scheme.grantValue || 'Not specified',
-    url: scheme.url || '#',
+    url: isAllowedUrl(scheme.url) ? scheme.url : '#',
     statusText: status.text,
     statusClasses: status.classes
   };
@@ -41,5 +46,6 @@ function presentSearchPage({ input, schemes }) {
 }
 
 module.exports = {
-  presentSearchPage
+  presentSearchPage,
+  presentScheme
 };

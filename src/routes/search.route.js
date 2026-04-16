@@ -13,8 +13,14 @@ router.get('/', (_req, res) => {
   res.render('search', viewModel);
 });
 
+const MAX_INPUT_LENGTH = 1000;
+
 router.post('/search', (req, res) => {
-  const input = typeof req.body.input === 'string' ? req.body.input : '';
+  let input = typeof req.body.input === 'string' ? req.body.input : '';
+  input = input
+    .slice(0, MAX_INPUT_LENGTH)
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '')
+    .trim();
   const schemes = searchService.searchSchemes(input);
 
   const viewModel = searchPresenter.presentSearchPage({
