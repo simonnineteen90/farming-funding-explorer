@@ -5,6 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
+    "test": "jest",
     "test:e2e": "playwright test"
   },
   "dependencies": {
@@ -13,6 +14,7 @@
     "nunjucks": "^3.2.4"
   },
   "devDependencies": {
+    "jest": "^30.3.0",
     "@playwright/test": "^1.59.1"
   }
 }

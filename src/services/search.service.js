@@ -1,35 +1,16 @@
 const fs = require('node:fs');
 const path = require('node:path');
+const { matchToSchemes } = require('./match-to-schemes');
 
-const dataPath = path.join(__dirname, '..', 'data', 'formatted-data.json');
-const parsedData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-const allSchemes = Array.isArray(parsedData.schemes) ? parsedData.schemes : [];
+const dataDir = path.join(__dirname, '..', 'data');
+const formattedData = JSON.parse(fs.readFileSync(path.join(dataDir, 'formatted-data.json'), 'utf-8'));
+const keywordData = JSON.parse(fs.readFileSync(path.join(dataDir, 'scheme-keywords.json'), 'utf-8'));
 
-function normalize(value) {
-  return typeof value === 'string' ? value.toLowerCase() : '';
-}
+const formattedSchemes = Array.isArray(formattedData.schemes) ? formattedData.schemes : [];
+const keywordSchemes = Array.isArray(keywordData.schemes) ? keywordData.schemes : [];
 
 function searchSchemes(input) {
-  const query = normalize(input).trim();
-
-  if (!query) {
-    return allSchemes;
-  }
-
-  return allSchemes.filter((scheme) => {
-    const haystack = [
-      scheme.name,
-      scheme.description,
-      scheme.category,
-      scheme.notes,
-      scheme.status,
-      scheme.grantValue
-    ]
-      .map(normalize)
-      .join(' ');
-
-    return haystack.includes(query);
-  });
+  return matchToSchemes(input, keywordSchemes, formattedSchemes);
 }
 
 module.exports = {
