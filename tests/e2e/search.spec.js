@@ -42,7 +42,7 @@ test.describe('Keyword search — positive match', () => {
     await page.getByLabel(INPUT_LABEL).fill('slurry');
     await page.getByRole('button', { name: 'Search' }).click();
 
-    await expect(page.getByRole('heading', { level: 2 })).toContainText('schemes found');
+    await expect(page.getByRole('heading', { level: 2, name: /schemes found/i })).toBeVisible();
 
     await expect(page.getByRole('link', { name: 'Slurry Infrastructure' })).toBeVisible();
   });

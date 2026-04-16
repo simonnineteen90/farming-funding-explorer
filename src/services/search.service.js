@@ -7,6 +7,7 @@ const {
   getGithubToken,
   ERROR_CODES
 } = require('./copilot.service');
+const logger = require('../logger');
 
 const dataDir = path.join(__dirname, '..', 'data');
 const formattedData = JSON.parse(fs.readFileSync(path.join(dataDir, 'formatted-data.json'), 'utf-8'));
@@ -37,19 +38,27 @@ async function searchSchemesFromNaturalLanguage(input) {
     return { schemes: [], source: 'empty', rejection: null };
   }
 
-  if (!isCopilotEnabled()) {
-    return { schemes: searchSchemes(normalizedInput), source: 'direct', rejection: null };
+  const enabled = isCopilotEnabled();
+  logger.info('search', 'search.copilot.status', { enabled });
+
+  if (!enabled) {
+    const result = { schemes: searchSchemes(normalizedInput), source: 'direct', rejection: null };
+    logger.info('search', 'search.source', { source: result.source });
+    return result;
   }
 
   const validation = validateNaturalLanguageInput(normalizedInput);
   if (!validation.valid) {
     if (validation.reasonCode === ERROR_CODES.DISALLOWED_INPUT) {
+      logger.info('search', 'search.source', { source: 'rejected' });
       return { schemes: [], source: 'rejected', rejection: buildRejection(validation) };
     }
+    logger.info('search', 'search.source', { source: 'invalid' });
     return { schemes: [], source: 'invalid', rejection: null };
   }
 
   if (!getGithubToken()) {
+    logger.info('search', 'search.source', { source: 'fallback', fallbackReason: ERROR_CODES.MISSING_TOKEN });
     return {
       schemes: searchSchemes(normalizedInput),
       source: 'fallback',
@@ -61,6 +70,7 @@ async function searchSchemesFromNaturalLanguage(input) {
   try {
     const keywords = await extractKeywordsWithCopilot(normalizedInput);
     const schemes = matchToSchemes(keywords.join(' '), keywordSchemes, formattedSchemes);
+    logger.info('search', 'search.source', { source: 'copilot' });
     return {
       schemes,
       source: 'copilot',
@@ -69,6 +79,7 @@ async function searchSchemesFromNaturalLanguage(input) {
     };
   } catch (error) {
     if (error && error.code === ERROR_CODES.DISALLOWED_INPUT) {
+      logger.info('search', 'search.source', { source: 'rejected' });
       return {
         schemes: [],
         source: 'rejected',
@@ -79,10 +90,12 @@ async function searchSchemesFromNaturalLanguage(input) {
       };
     }
 
+    const fallbackReason = error && error.code ? error.code : ERROR_CODES.RUNTIME_FAILURE;
+    logger.info('search', 'search.source', { source: 'fallback', fallbackReason });
     return {
       schemes: searchSchemes(normalizedInput),
       source: 'fallback',
-      fallbackReason: error && error.code ? error.code : ERROR_CODES.RUNTIME_FAILURE,
+      fallbackReason,
       rejection: null
     };
   }

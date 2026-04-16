@@ -1,6 +1,7 @@
 'use strict';
 
 const { CopilotClient, approveAll } = require('@github/copilot-sdk');
+const logger = require('../logger');
 
 const ERROR_CODES = Object.freeze({
   INVALID_INPUT: 'INVALID_INPUT',
@@ -194,9 +195,12 @@ async function extractKeywordsWithCopilot(input) {
     );
   }
 
+  const model = getCopilotModel();
+  logger.info('copilot', 'copilot.session.starting', { model, inputLength: input.length });
+
   const copilotClient = getCopilotClient(token);
   const session = await copilotClient.createSession({
-    model: getCopilotModel(),
+    model,
     onPermissionRequest: approveAll,
     availableTools: [],
     systemMessage: {
@@ -205,16 +209,27 @@ async function extractKeywordsWithCopilot(input) {
     }
   });
 
+  const prompt = buildKeywordPrompt(input);
+  logger.debug('copilot', 'copilot.prompt.sent', { prompt });
+
   let operationError = null;
   let keywords = [];
   try {
     const response = await session.sendAndWait(
-      { prompt: buildKeywordPrompt(input) },
+      { prompt },
       RESPONSE_TIMEOUT_MS
     );
-    keywords = parseKeywordArrayResponse(getAssistantContent(response));
+    const rawContent = getAssistantContent(response);
+    logger.debug('copilot', 'copilot.response.received', { rawContent });
+    keywords = parseKeywordArrayResponse(rawContent);
+    logger.info('copilot', 'copilot.keywords.extracted', { keywords });
   } catch (error) {
     operationError = asCopilotServiceError(error);
+    logger.error('copilot', 'copilot.error', {
+      code: operationError.code,
+      message: operationError.message,
+      cause: operationError.cause ? String(operationError.cause) : undefined
+    });
   }
 
   let disconnectError = null;
