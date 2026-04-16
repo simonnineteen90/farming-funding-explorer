@@ -1,0 +1,235 @@
+{
+  "schemes": [
+    {
+      "id": "sustainable-farming-incentive",
+      "name": "Sustainable Farming Incentive (SFI)",
+      "keywords": [
+        "sustainable", "farming", "environment", "land management", "arable", "grassland",
+        "soil", "hedgerows", "hedges", "pollinators", "bees", "wildlife", "biodiversity",
+        "nature", "carbon", "water quality", "food production", "productivity", "SFI",
+        "cover crops", "buffer strips", "flower margins", "integrated pest management",
+        "IPM", "moorland", "upland", "lowland", "pasture", "green", "eco-friendly",
+        "conservation", "habitat", "birds", "farmland birds", "fertiliser", "nutrients",
+        "organic", "mixed farming", "agroforestry", "trees on farm"
+      ]
+    },
+    {
+      "id": "countryside-stewardship-higher-tier",
+      "name": "Countryside Stewardship Higher Tier (CSHT)",
+      "keywords": [
+        "SSSI", "site of special scientific interest", "commons", "common land",
+        "scheduled monument", "historic", "heritage", "ancient", "woodland",
+        "nature reserve", "protected site", "upland", "moorland", "heathland",
+        "bog", "wetland", "flood plain", "riparian", "riverbank", "rare habitat",
+        "priority habitat", "environment", "restoration", "conservation",
+        "Natural England", "Forestry Commission", "climate change", "higher tier",
+        "stewardship", "countryside", "landscape", "agri-environment"
+      ]
+    },
+    {
+      "id": "landscape-recovery",
+      "name": "Landscape Recovery",
+      "keywords": [
+        "large scale", "collaboration", "group", "partnership", "net zero", "carbon",
+        "rewilding", "nature recovery", "protected sites", "wildlife", "habitat",
+        "500 hectares", "landscape scale", "long term", "river catchment",
+        "biodiversity", "ecosystem", "restoration", "woodland creation",
+        "peatland", "wetland", "conservation", "environment"
+      ]
+    },
+    {
+      "id": "capital-grants",
+      "name": "Capital Items / Capital Grants",
+      "keywords": [
+        "capital", "equipment", "infrastructure", "fencing", "gates", "water troughs",
+        "hedgerow", "planting", "scrapes", "ponds", "walls", "stone walls",
+        "woodland", "trees", "shelterbelts", "watercourse", "ditch", "drainage",
+        "soil", "erosion", "run-off", "habitat", "environment", "improvements",
+        "one-off", "physical works", "investment"
+      ]
+    },
+    {
+      "id": "farming-equipment-and-technology-fund",
+      "name": "Farming Equipment and Technology Fund (FETF)",
+      "keywords": [
+        "equipment", "machinery", "technology", "tools", "buy", "purchase", "invest",
+        "productivity", "slurry", "animal welfare", "livestock", "precision farming",
+        "GPS", "drones", "robots", "automation", "sprayer", "spreader", "harvesting",
+        "handling", "weighing", "scanning", "health monitoring", "ventilation",
+        "lighting", "feeding", "water", "manure", "effluent", "contractor",
+        "growers", "foresters", "arable", "horticulture", "new kit", "upgrade"
+      ]
+    },
+    {
+      "id": "water-management-grant",
+      "name": "Water Management Grant (round 2)",
+      "keywords": [
+        "water", "irrigation", "reservoir", "abstraction", "drought", "storage",
+        "rainwater", "harvesting", "water efficiency", "horticulture", "crops",
+        "glasshouse", "polytunnel", "outdoor crops", "water supply", "pump",
+        "pipes", "infrastructure", "water management", "dry weather", "climate"
+      ]
+    },
+    {
+      "id": "slurry-infrastructure-grant",
+      "name": "Slurry Infrastructure Grant (round 2)",
+      "keywords": [
+        "slurry", "manure", "effluent", "lagoon", "slurry store", "storage",
+        "dairy", "cattle", "cows", "pigs", "nitrates", "pollution", "water quality",
+        "NVZ", "nitrate vulnerable zone", "spreading", "tanker", "separator",
+        "cover", "lid", "concrete", "infrastructure", "waste", "muck", "slurry pit",
+        "field heap", "slurry management", "digestate"
+      ]
+    },
+    {
+      "id": "adding-value-grant",
+      "name": "Adding Value Grant",
+      "keywords": [
+        "adding value", "processing", "packing", "storage", "marketing", "direct sales",
+        "farm shop", "box scheme", "markets", "butchery", "dairy processing",
+        "cheese making", "cheese", "milk", "yoghurt", "jam", "preserves", "baking",
+        "brewery", "distillery", "juice", "cider", "apple", "fruit", "vegetables",
+        "crops", "meat", "diversification", "local produce", "supply chain",
+        "food production", "value added", "refrigeration", "cold store"
+      ]
+    },
+    {
+      "id": "improving-farm-productivity-grant",
+      "name": "Improving Farm Productivity Grant (round 2)",
+      "keywords": [
+        "solar", "solar panels", "solar PV", "photovoltaic", "renewable energy",
+        "robots", "robotics", "automation", "autonomous", "drones", "drone spraying",
+        "self-driving", "precision", "technology", "energy", "electricity",
+        "productivity", "efficiency", "innovation", "glasshouse", "polytunnel",
+        "controlled environment", "horticulture", "LED", "lighting", "growing"
+      ]
+    },
+    {
+      "id": "farming-in-protected-landscapes",
+      "name": "Farming in Protected Landscapes (FiPL)",
+      "keywords": [
+        "national park", "AONB", "area of outstanding natural beauty", "protected landscape",
+        "scenic", "upland", "moorland", "Lake District", "Peak District", "Dartmoor",
+        "Exmoor", "Yorkshire Dales", "North York Moors", "South Downs", "Cotswolds",
+        "nature recovery", "climate", "access", "public access", "footpaths",
+        "recreation", "landscape character", "habitat", "restoration", "heritage",
+        "local area", "community", "visitors", "tourism"
+      ]
+    },
+    {
+      "id": "animal-health-welfare-review",
+      "name": "Get Funding to Improve Animal Health and Welfare (Vet Visits)",
+      "keywords": [
+        "vet", "veterinary", "vet visit", "health check", "review", "annual review",
+        "cattle", "cows", "beef", "dairy", "sheep", "lambs", "pigs", "sows",
+        "livestock", "animals", "disease", "endemic disease", "BVD", "bovine viral diarrhoea",
+        "PRRS", "pig disease", "sheep disease", "worming", "parasites", "fluke",
+        "lameness", "mastitis", "vaccination", "health plan", "biosecurity",
+        "TB", "tuberculosis", "welfare", "health and welfare", "stockman", "herd",
+        "flock", "blood test", "sampling"
+      ]
+    },
+    {
+      "id": "laying-hen-housing-grant",
+      "name": "Laying Hen Housing for Health and Welfare Grant (round 1)",
+      "keywords": [
+        "laying hens", "hens", "chickens", "poultry", "eggs", "egg production",
+        "free range", "barn", "colony", "enriched cage", "pullets", "young hens",
+        "bird", "flock", "housing", "hen house", "poultry shed", "veranda",
+        "outdoor access", "litter", "perches", "nesting boxes", "welfare",
+        "feather pecking", "health", "ventilation", "lighting", "stocking density",
+        "animal welfare", "upgrade housing", "new housing", "replace housing",
+        "egg farmer", "poultry farmer", "layers", "broiler", "table birds"
+      ]
+    },
+    {
+      "id": "calf-housing-grant",
+      "name": "Calf Housing for Health and Welfare Grant",
+      "keywords": [
+        "calves", "calf", "young cattle", "dairy calves", "beef calves", "housing",
+        "calf shed", "calf pens", "hutches", "individual pens", "group housing",
+        "welfare", "ventilation", "bedding", "straw", "warmth", "health",
+        "pneumonia", "scours", "disease", "colostrum", "milk feeding", "automatic feeder",
+        "cattle", "dairy", "beef", "cows", "new build", "upgrade", "replace"
+      ]
+    },
+    {
+      "id": "england-woodland-creation-grant",
+      "name": "England Woodland Creation Grant (EWCO)",
+      "keywords": [
+        "trees", "woodland", "planting trees", "tree planting", "new woodland",
+        "forestry", "forest", "native trees", "broadleaf", "oak", "ash", "birch",
+        "alder", "willow", "mixed woodland", "conifer", "timber", "carbon sequestration",
+        "carbon credits", "biodiversity", "wildlife", "habitat", "shade",
+        "riparian", "riverbank", "shelter", "wind break", "flood", "water quality",
+        "landscape", "access", "recreation", "community forest", "agroforestry",
+        "silvopasture", "hectares", "land use change", "environment"
+      ]
+    },
+    {
+      "id": "woodland-management-plan",
+      "name": "Woodland Management Plan",
+      "keywords": [
+        "woodland management", "existing woodland", "plan", "management plan",
+        "trees", "forest", "timber", "thinning", "coppice", "ride", "glade",
+        "deer", "squirrel", "grey squirrel", "invasive species", "veteran trees",
+        "ancient woodland", "restocking", "biodiversity", "wildlife", "habitat",
+        "Forestry Commission", "10 year plan", "long term"
+      ]
+    },
+    {
+      "id": "woodland-creation-planning-grant",
+      "name": "Woodland Creation Planning Grant (WCPG)",
+      "keywords": [
+        "woodland design", "planning", "tree planting plan", "design plan",
+        "UK Forestry Standard", "UKFS", "forestry", "woodland creation",
+        "consultancy", "survey", "ecology", "feasibility", "preparation",
+        "new woodland", "trees", "landscape", "environment"
+      ]
+    },
+    {
+      "id": "tree-health-pilot-scheme",
+      "name": "Tree Health Pilot Scheme",
+      "keywords": [
+        "tree disease", "tree pests", "ash dieback", "Chalara", "Phytophthora",
+        "Ips bark beetle", "larch disease", "spruce", "sweet chestnut blight",
+        "oak processionary moth", "OPM", "diseased trees", "felling", "restocking",
+        "biosecurity", "tree health", "dying trees", "infected trees",
+        "ash trees", "larch", "woodland", "forest", "pest"
+      ]
+    },
+    {
+      "id": "woodland-tree-health-grant",
+      "name": "Woodland Tree Health Grant (WTH)",
+      "keywords": [
+        "tree health", "restocking", "woodland recovery", "diseased woodland",
+        "felling", "replanting", "ash dieback", "larch", "spruce", "tree pests",
+        "woodland improvement", "tree disease", "forest", "biosecurity",
+        "infrastructure", "roads", "tracks", "deer fencing", "squirrel control"
+      ]
+    },
+    {
+      "id": "farming-innovation-programme",
+      "name": "Farming Innovation Programme (FIP)",
+      "keywords": [
+        "research", "innovation", "R&D", "research and development", "science",
+        "technology", "new ideas", "experiment", "trial", "university", "collaboration",
+        "productivity", "sustainability", "resilience", "horticulture", "agriculture",
+        "precision agriculture", "data", "sensors", "AI", "artificial intelligence",
+        "robotics", "automation", "environment", "emissions", "carbon",
+        "soil health", "pest control", "disease resistance", "breeding",
+        "crop varieties", "future farming", "net zero", "climate"
+      ]
+    },
+    {
+      "id": "delinked-payments",
+      "name": "Delinked Payments (replacing Basic Payment Scheme)",
+      "keywords": [
+        "BPS", "basic payment", "basic payment scheme", "single farm payment",
+        "subsidy", "payment", "annual payment", "delinked", "direct payment",
+        "SFP", "income support", "farm support", "RPA", "Rural Payments Agency",
+        "entitlements", "land-based payment", "transition", "phase out"
+      ]
+    }
+  ]
+}
