@@ -1,9 +1,11 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const dataPath = path.join(__dirname, '..', 'data', 'formatted-data.json');
-const parsedData = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-const allSchemes = Array.isArray(parsedData.schemes) ? parsedData.schemes : [];
+const dataDir = path.join(__dirname, '..', 'data');
+const formattedData = JSON.parse(fs.readFileSync(path.join(dataDir, 'formatted-data.json'), 'utf-8'));
+const keywordData = JSON.parse(fs.readFileSync(path.join(dataDir, 'scheme-keywords.json'), 'utf-8'));
+
+const allSchemes = Array.isArray(formattedData.schemes) ? formattedData.schemes : [];
 
 const statusPriority = {
   open: 0,

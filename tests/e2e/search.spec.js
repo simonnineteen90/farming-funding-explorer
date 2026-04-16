@@ -128,3 +128,57 @@ test.describe('Status controls', () => {
     await expect(page.getByLabel('Open')).toBeChecked();
   });
 });
+
+test.describe('Edge cases', () => {
+  test('XSS input is reflected as escaped text', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByLabel(searchLabel).fill('<img src=x onerror=alert(1)>');
+    await page.getByRole('button', { name: 'Search' }).click();
+
+    const textareaValue = await page.getByLabel(searchLabel).inputValue();
+    expect(textareaValue).toContain('<img');
+
+    const html = await page.content();
+    expect(html).not.toContain('<img src=x onerror=alert(1)>');
+    expect(html).toContain('&lt;img');
+  });
+
+  test('very long input is truncated to 1000 characters', async ({ page }) => {
+    await page.goto('/');
+
+    const longInput = 'a'.repeat(5000);
+    await page.getByLabel(searchLabel).fill(longInput);
+    await page.getByRole('button', { name: 'Search' }).click();
+
+    const textareaValue = await page.getByLabel(searchLabel).inputValue();
+    expect(textareaValue.length).toBeLessThanOrEqual(1000);
+  });
+
+  test('special characters only shows no schemes found', async ({ page }) => {
+    await page.goto('/');
+
+    await page.getByLabel(searchLabel).fill('!!!@@@###$$$');
+    await page.getByRole('button', { name: 'Search' }).click();
+
+    await expect(page.getByText('No schemes found.')).toBeVisible();
+  });
+
+  test('rapid repeated submissions all succeed', async ({ page }) => {
+    await page.goto('/');
+
+    for (let i = 0; i < 3; i++) {
+      await page.getByLabel(searchLabel).fill('soil');
+      await page.getByRole('button', { name: 'Search' }).click();
+      await expect(page.getByRole('heading', { name: /schemes found/i })).toBeVisible();
+    }
+  });
+
+  test('404 page shows friendly error', async ({ page }) => {
+    const response = await page.goto('/nonexistent-page');
+
+    expect(response.status()).toBe(404);
+    await expect(page.getByText('There is a problem')).toBeVisible();
+    await expect(page.getByText('Page not found.')).toBeVisible();
+  });
+});

@@ -20,7 +20,7 @@
         "SSSI", "site of special scientific interest", "commons", "common land",
         "scheduled monument", "historic", "heritage", "ancient", "woodland",
         "nature reserve", "protected site", "upland", "moorland", "heathland",
-        "bog", "wetland", "flood plain", "riparian", "riverbank", "rare habitat",
+        "bog", "wetland", "flood plain", "riparian", "riverbank", "stream", "rare habitat",
         "priority habitat", "environment", "restoration", "conservation",
         "Natural England", "Forestry Commission", "climate change", "higher tier",
         "stewardship", "countryside", "landscape", "agri-environment"
@@ -43,7 +43,7 @@
       "keywords": [
         "capital", "equipment", "infrastructure", "fencing", "gates", "water troughs",
         "hedgerow", "planting", "scrapes", "ponds", "walls", "stone walls",
-        "woodland", "trees", "shelterbelts", "watercourse", "ditch", "drainage",
+        "woodland", "trees", "shelterbelts", "watercourse", "river", "stream", "ditch", "drainage",
         "soil", "erosion", "run-off", "habitat", "environment", "improvements",
         "one-off", "physical works", "investment"
       ]
@@ -229,6 +229,17 @@
         "subsidy", "payment", "annual payment", "delinked", "direct payment",
         "SFP", "income support", "farm support", "RPA", "Rural Payments Agency",
         "entitlements", "land-based payment", "transition", "phase out"
+      ]
+    },
+    {
+      "id": "regional-woodland-creation",
+      "name": "Creating Regional Woodland",
+      "keywords": [
+        "regional woodland", "local woodland", "woodland creation partners",
+        "local partner", "catchment area", "tailored grant", "trees", "planting",
+        "tree planting", "new woodland", "forestry", "native trees", "broadleaf",
+        "woodland", "biodiversity", "carbon", "carbon sequestration", "environment",
+        "landscape", "habitat", "wildlife", "local area", "community woodland"
       ]
     }
   ]
