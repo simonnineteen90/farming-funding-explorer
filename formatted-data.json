@@ -1,0 +1,195 @@
+{
+  "source": {
+    "url": "https://www.gov.uk/guidance/funding-for-farmers",
+    "title": "Funding for farmers, growers and land managers",
+    "description": "Apply for grants and other funding to increase productivity, manage your land to benefit the environment and support your agricultural business.",
+    "lastUpdated": "2026-03-31T08:12:10Z"
+  },
+  "schemes": [
+    {
+      "id": "sustainable-farming-incentive-sfi",
+      "name": "Sustainable Farming Incentive (SFI)",
+      "category": "Manage your land to benefit the environment",
+      "categoryId": "manage-your-land-to-benefit-the-environment",
+      "status": "closed",
+      "notes": "Window 1 opens from June 2026 for small farms and farms without an existing ELM revenue agreement. Window 2 opens from September 2026 for all farms.",
+      "description": "SFI pays farmers and land managers to take up or maintain sustainable farming and land management practices that:",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#sustainable-farming-incentive-sfi"
+    },
+    {
+      "id": "countryside-stewardship-higher-tier-csht",
+      "name": "Countryside Stewardship Higher Tier (CSHT)",
+      "category": "Manage your land to benefit the environment",
+      "categoryId": "manage-your-land-to-benefit-the-environment",
+      "status": "by_invitation",
+      "openDate": "September 2025",
+      "grantValue": "amounts vary depending on land management actions included in your CSHT agreement",
+      "description": "CSHT pays farmers and land managers to manage land in a way that:",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#countryside-stewardship-higher-tier-csht"
+    },
+    {
+      "id": "landscape-recovery",
+      "name": "Landscape Recovery",
+      "category": "Manage your land to benefit the environment",
+      "categoryId": "manage-your-land-to-benefit-the-environment",
+      "status": "closed",
+      "closingDate": "the scheme is closed",
+      "description": "Landscape Recovery pays groups of farmers and land managers to do long-term, large-scale projects together. Land must be in England and consist of at least 500 connected hectares.",
+      "url": "https://www.gov.uk/government/publications/apply-for-landscape-recovery-funding"
+    },
+    {
+      "id": "capital-items",
+      "name": "Capital items",
+      "category": "Manage your land to benefit the environment",
+      "categoryId": "manage-your-land-to-benefit-the-environment",
+      "status": "open",
+      "notes": "Capital Grants will open in July 2026. Scheme guidance and eligibility will be published ahead of applications opening.",
+      "description": "You can get paid for capital items through various capital grants to help you carry out management actions and improve environmental outcomes.",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#capital-items"
+    },
+    {
+      "id": "farming-equipment-and-technology-fund-fetf",
+      "name": "Farming Equipment and Technology Fund (FETF)",
+      "category": "Invest in equipment, technology and infrastructure to increase productivity",
+      "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
+      "status": "open",
+      "openDate": "17 March 2026",
+      "closingDate": "midday 28 April 2026",
+      "grantValue": "between £1,000 and £25,000 for each grant theme",
+      "description": "The Farming Equipment and Technology Fund (FETF) has 3 grants to help you buy items to:",
+      "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#farming-equipment-and-technology-fund-(fetf)"
+    },
+    {
+      "id": "water-management-grant-round-2",
+      "name": "Water Management grant (round 2)",
+      "category": "Invest in equipment, technology and infrastructure to increase productivity",
+      "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
+      "status": "closed",
+      "closingDate": "now closed",
+      "grantValue": "between £35,000 and £500,000",
+      "description": "Water Management round 2.",
+      "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#water-management-grant"
+    },
+    {
+      "id": "slurry-infrastructure-grant-round-2",
+      "name": "Slurry Infrastructure grant (round 2)",
+      "category": "Invest in equipment, technology and infrastructure to increase productivity",
+      "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
+      "status": "closed",
+      "closingDate": "now closed",
+      "grantValue": "between £25,000 and £250,000",
+      "description": "Slurry Infrastructure grant.",
+      "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#slurry-infrastructure-grant"
+    },
+    {
+      "id": "adding-value-grant",
+      "name": "Adding Value grant",
+      "category": "Invest in equipment, technology and infrastructure to increase productivity",
+      "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
+      "status": "closed",
+      "closingDate": "now closed",
+      "grantValue": "between £25,000 and £300,000",
+      "description": "The Adding Value grant is closed.",
+      "url": "https://www.gov.uk/government/publications/adding-value-grant-for-farmers-to-improve-crops-or-livestock"
+    },
+    {
+      "id": "improving-farm-productivity-grant-round-2",
+      "name": "Improving Farm Productivity grant (round 2)",
+      "category": "Invest in equipment, technology and infrastructure to increase productivity",
+      "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
+      "status": "closed",
+      "closingDate": "applications are now closed",
+      "notes": "Grant value: between £25,000 and £500,000 for robotic or automatic equipment. between £15,000 and £100,000 for solar photovoltaic (PV) systems.",
+      "description": null,
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#improving-farm-productivity-grant-round-2"
+    },
+    {
+      "id": "farming-in-protected-landscapes",
+      "name": "Farming in protected landscapes",
+      "category": "Farming in protected landscapes",
+      "categoryId": "farming-in-protected-landscapes",
+      "status": "open",
+      "openDate": "apply at any time of year",
+      "closingDate": "projects must end by March 2029",
+      "grantValue": "amounts vary depending on your project",
+      "description": "Through the Farming in Protected Landscapes (FiPL) programme, you can apply for funding if you’re a farmer or land manager within an area of outstanding natural beauty or national park in England. You must be planning projects that:",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#farming-in-protected-landscapes"
+    },
+    {
+      "id": "get-funding-to-improve-animal-health-and-welfare",
+      "name": "Get funding to improve animal health and welfare",
+      "category": "Improve animal health and welfare",
+      "categoryId": "improve-animal-health-and-welfare",
+      "status": "open",
+      "openDate": "apply at any time of year",
+      "grantValue": "from £215 to £923 per review or follow-up depending on livestock type",
+      "description": "Farmers who keep cattle, sheep or pigs can get funding for a vet to visit their farm to carry out an annual health and welfare review, and an endemic disease follow-up.",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#get-funding-to-improve-animal-health-and-welfare"
+    },
+    {
+      "id": "laying-hen-housing-for-health-and-welfare-grant-round-1",
+      "name": "Laying Hen Housing for Health and Welfare grant (round 1)",
+      "category": "Improve animal health and welfare",
+      "categoryId": "improve-animal-health-and-welfare",
+      "status": "open",
+      "closingDate": "invited applicants have until 11.59pm on 28 April 2026 to submit their full application",
+      "grantValue": "between £5,000 and £500,000",
+      "description": "Egg production farmers can apply for a grant to add a veranda onto, or upgrade or replace, existing laying hen or pullet housing to improve animal health and welfare.",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#laying-hen-housing-for-health-and-welfare-grant-round-1"
+    },
+    {
+      "id": "calf-housing-for-health-and-welfare-grant",
+      "name": "Calf Housing for Health and Welfare grant",
+      "category": "Improve animal health and welfare",
+      "categoryId": "improve-animal-health-and-welfare",
+      "status": "closed",
+      "closingDate": "applications are now closed",
+      "grantValue": "between £15,000 and £500,000",
+      "description": "Calf Housing for Health and Welfare grant",
+      "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#calf-housing-for-health-and-welfare-grant"
+    },
+    {
+      "id": "creating-woodland",
+      "name": "Creating woodland",
+      "category": "Create or improve woodland and protect tree health",
+      "categoryId": "create-or-improve-woodland-and-protect-tree-health",
+      "status": "open",
+      "openDate": "all year round",
+      "grantValue": "up to £10,200 per hectare with an additional £12,700 per hectare if the woodland delivers wider benefits to society, nature recovery and the environment",
+      "description": "The England Woodland Creation Grant (EWCO) provides funding to create new woodland on areas that are at least 1 hectare.",
+      "url": "https://www.gov.uk/guidance/england-woodland-creation-offer"
+    },
+    {
+      "id": "creating-regional-woodland",
+      "name": "Creating regional woodland",
+      "category": "Create or improve woodland and protect tree health",
+      "categoryId": "create-or-improve-woodland-and-protect-tree-health",
+      "status": "open",
+      "description": "If your land is located within the catchment area of one of our local Woodland Creation Partners, you could apply for a regional woodland creation or tree planting grant that can be tailored to your circumstances.",
+      "url": "https://www.gov.uk/guidance/funding-for-farmers#creating-regional-woodland"
+    },
+    {
+      "id": "planning-woodland",
+      "name": "Planning woodland",
+      "category": "Create or improve woodland and protect tree health",
+      "categoryId": "create-or-improve-woodland-and-protect-tree-health",
+      "status": "open",
+      "openDate": "all year round",
+      "grantValue": "maximum £30,500 per project",
+      "description": "The Woodland management plan offers grants for 10-year woodland management planning.",
+      "url": "https://www.gov.uk/countryside-stewardship-grants/woodland-management-plan-pa3"
+    },
+    {
+      "id": "protecting-tree-health",
+      "name": "Protecting tree health",
+      "category": "Create or improve woodland and protect tree health",
+      "categoryId": "create-or-improve-woodland-and-protect-tree-health",
+      "status": "open",
+      "openDate": "all year round",
+      "grantValue": "varies depending on the capital items chosen as part of your CS grant agreement",
+      "notes": "Grant value: - up to 80% of felling costs per m3 - up to 40% of infrastructure costs",
+      "description": "You can apply to the tree health pilot scheme to test different ways of slowing the spread of pests and diseases affecting trees in England. Grants are available for:",
+      "url": "https://www.gov.uk/government/publications/tree-health-pilot-scheme-2024"
+    }
+  ]
+}
