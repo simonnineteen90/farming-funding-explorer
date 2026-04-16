@@ -1,6 +1,8 @@
 {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 {% from "govuk/components/button/macro.njk" import govukButton %}
 {% from "govuk/components/tag/macro.njk" import govukTag %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+{% from "govuk/components/accordion/macro.njk" import govukAccordion %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
 
@@ -11,9 +13,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ pageTitle }} - GOV.UK</title>
   <link rel="stylesheet" href="/govuk/govuk-frontend.min.css">
+  <style>
+    #scheme-filters .govuk-accordion__controls {
+      display: none;
+    }
+  </style>
 </head>
 <body class="govuk-template__body">
-  <script>document.body.className += ' js-enabled';</script>
+  <script>
+    document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');
+  </script>
 
   {{ govukHeader({
     homepageUrl: "/",
@@ -42,6 +51,35 @@
           rows: 6,
           value: input
         }) }}
+
+        {% if filters and filters.length > 0 %}
+          {% set filterContentHtml %}
+            {{ govukCheckboxes({
+              idPrefix: "status",
+              name: "status",
+              hint: {
+                text: "Select one or more statuses"
+              },
+              items: filters
+            }) }}
+          {% endset %}
+
+          {{ govukAccordion({
+            id: "scheme-filters",
+            rememberExpanded: false,
+            items: [
+              {
+                heading: {
+                  text: "Expand filters"
+                },
+                expanded: false,
+                content: {
+                  html: filterContentHtml
+                }
+              }
+            ]
+          }) }}
+        {% endif %}
 
         {{ govukButton({
           text: "Search"
@@ -86,11 +124,10 @@
     }
   }) }}
 
-  <script src="/govuk/govuk-frontend.min.js"></script>
-  <script>
-    if (window.GOVUK && window.GOVUKFrontend) {
-      window.GOVUKFrontend.initAll();
-    }
+  <script type="module">
+    import { initAll } from '/govuk/govuk-frontend.min.js';
+
+    initAll();
   </script>
 </body>
 </html>
