@@ -94,6 +94,13 @@ function scoreScheme(tokens, keywordEntry) {
   return { score: matched.length, matchedKeywords: matched };
 }
 
+const STATUS_PRIORITY = { open: 0, by_invitation: 1, closed: 3 };
+
+function getStatusRank(status) {
+  const key = typeof status === 'string' ? status.toLowerCase() : '';
+  return Object.hasOwn(STATUS_PRIORITY, key) ? STATUS_PRIORITY[key] : 2;
+}
+
 function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
   if (!input || typeof input !== 'string' || input.trim() === '') return [];
 
@@ -130,7 +137,13 @@ function matchToSchemes(input, keywordSchemes, formattedSchemes, limit = 5) {
     });
   }
 
-  results.sort((a, b) => b.score - a.score);
+  results.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    const statusDiff = getStatusRank(a.status) - getStatusRank(b.status);
+    if (statusDiff !== 0) return statusDiff;
+    return (a.name || '').localeCompare(b.name || '');
+  });
+
   return results.slice(0, limit);
 }
 

@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
+const INPUT_LABEL = /Describe your farm and what you need funding for/i;
 const searchLabel = 'Describe your farm and what you need funding for';
 
 test.describe('Page load', () => {

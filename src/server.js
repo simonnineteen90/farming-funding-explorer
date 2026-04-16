@@ -4,6 +4,8 @@ const nunjucks = require('nunjucks');
 const rateLimit = require('express-rate-limit');
 const searchRoute = require('./routes/search.route');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
