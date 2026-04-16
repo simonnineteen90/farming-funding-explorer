@@ -3,9 +3,16 @@
 ## Goal
 Turn a farmer's free-text description into ranked funding schemes with clear reasons, eligibility checks, and confidence.
 
-## Current Inputs
-- formatted-data.json: scheme status, dates, values, source URLs, descriptions.
-- scheme-keywords.json: intent keywords and phrase hints.
+## Data Structure
+All data files use the same canonical scheme IDs as a single source of truth.
+
+### ID Standardization
+- **Single canonical ID per scheme** used consistently across:
+  - `data/formatted-data.json` — scheme status, dates, values, source URLs, descriptions
+  - `data/scheme-keywords.json` — intent keywords and phrase hints
+  - `test_cases.json` — labeled evaluation test data
+- No mapping layer required—direct joins on ID
+- IDs follow kebab-case: `sustainable-farming-incentive`, `capital-grants`, etc.
 
 ## Required Canonical Model
 All matching should be done against one canonical scheme record per scheme.

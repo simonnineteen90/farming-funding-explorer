@@ -7,7 +7,7 @@
   },
   "schemes": [
     {
-      "id": "sustainable-farming-incentive-sfi",
+      "id": "sustainable-farming-incentive",
       "name": "Sustainable Farming Incentive (SFI)",
       "category": "Manage your land to benefit the environment",
       "categoryId": "manage-your-land-to-benefit-the-environment",
@@ -17,7 +17,7 @@
       "url": "https://www.gov.uk/guidance/funding-for-farmers#sustainable-farming-incentive-sfi"
     },
     {
-      "id": "countryside-stewardship-higher-tier-csht",
+      "id": "countryside-stewardship-higher-tier",
       "name": "Countryside Stewardship Higher Tier (CSHT)",
       "category": "Manage your land to benefit the environment",
       "categoryId": "manage-your-land-to-benefit-the-environment",
@@ -38,7 +38,7 @@
       "url": "https://www.gov.uk/government/publications/apply-for-landscape-recovery-funding"
     },
     {
-      "id": "capital-items",
+      "id": "capital-grants",
       "name": "Capital items",
       "category": "Manage your land to benefit the environment",
       "categoryId": "manage-your-land-to-benefit-the-environment",
@@ -48,7 +48,7 @@
       "url": "https://www.gov.uk/guidance/funding-for-farmers#capital-items"
     },
     {
-      "id": "farming-equipment-and-technology-fund-fetf",
+      "id": "farming-equipment-and-technology-fund",
       "name": "Farming Equipment and Technology Fund (FETF)",
       "category": "Invest in equipment, technology and infrastructure to increase productivity",
       "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
@@ -60,7 +60,7 @@
       "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#farming-equipment-and-technology-fund-(fetf)"
     },
     {
-      "id": "water-management-grant-round-2",
+      "id": "water-management-grant",
       "name": "Water Management grant (round 2)",
       "category": "Invest in equipment, technology and infrastructure to increase productivity",
       "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
@@ -71,7 +71,7 @@
       "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#water-management-grant"
     },
     {
-      "id": "slurry-infrastructure-grant-round-2",
+      "id": "slurry-infrastructure-grant",
       "name": "Slurry Infrastructure grant (round 2)",
       "category": "Invest in equipment, technology and infrastructure to increase productivity",
       "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
@@ -93,7 +93,7 @@
       "url": "https://www.gov.uk/government/publications/adding-value-grant-for-farmers-to-improve-crops-or-livestock"
     },
     {
-      "id": "improving-farm-productivity-grant-round-2",
+      "id": "improving-farm-productivity-grant",
       "name": "Improving Farm Productivity grant (round 2)",
       "category": "Invest in equipment, technology and infrastructure to increase productivity",
       "categoryId": "invest-in-equipment-technology-and-infrastructure-to-increase-productivity",
@@ -116,7 +116,7 @@
       "url": "https://www.gov.uk/guidance/funding-for-farmers#farming-in-protected-landscapes"
     },
     {
-      "id": "get-funding-to-improve-animal-health-and-welfare",
+      "id": "animal-health-welfare-review",
       "name": "Get funding to improve animal health and welfare",
       "category": "Improve animal health and welfare",
       "categoryId": "improve-animal-health-and-welfare",
@@ -127,7 +127,7 @@
       "url": "https://www.gov.uk/guidance/funding-for-farmers#get-funding-to-improve-animal-health-and-welfare"
     },
     {
-      "id": "laying-hen-housing-for-health-and-welfare-grant-round-1",
+      "id": "laying-hen-housing-grant",
       "name": "Laying Hen Housing for Health and Welfare grant (round 1)",
       "category": "Improve animal health and welfare",
       "categoryId": "improve-animal-health-and-welfare",
@@ -138,7 +138,7 @@
       "url": "https://www.gov.uk/guidance/funding-for-farmers#laying-hen-housing-for-health-and-welfare-grant-round-1"
     },
     {
-      "id": "calf-housing-for-health-and-welfare-grant",
+      "id": "calf-housing-grant",
       "name": "Calf Housing for Health and Welfare grant",
       "category": "Improve animal health and welfare",
       "categoryId": "improve-animal-health-and-welfare",
@@ -149,7 +149,7 @@
       "url": "https://www.gov.uk/government/collections/farming-investment-fund-fif#calf-housing-for-health-and-welfare-grant"
     },
     {
-      "id": "creating-woodland",
+      "id": "england-woodland-creation-grant",
       "name": "Creating woodland",
       "category": "Create or improve woodland and protect tree health",
       "categoryId": "create-or-improve-woodland-and-protect-tree-health",
@@ -160,7 +160,7 @@
       "url": "https://www.gov.uk/guidance/england-woodland-creation-offer"
     },
     {
-      "id": "creating-regional-woodland",
+      "id": "regional-woodland-creation",
       "name": "Creating regional woodland",
       "category": "Create or improve woodland and protect tree health",
       "categoryId": "create-or-improve-woodland-and-protect-tree-health",
@@ -169,7 +169,7 @@
       "url": "https://www.gov.uk/guidance/funding-for-farmers#creating-regional-woodland"
     },
     {
-      "id": "planning-woodland",
+      "id": "woodland-management-plan",
       "name": "Planning woodland",
       "category": "Create or improve woodland and protect tree health",
       "categoryId": "create-or-improve-woodland-and-protect-tree-health",
@@ -180,7 +180,7 @@
       "url": "https://www.gov.uk/countryside-stewardship-grants/woodland-management-plan-pa3"
     },
     {
-      "id": "protecting-tree-health",
+      "id": "tree-health-pilot-scheme",
       "name": "Protecting tree health",
       "category": "Create or improve woodland and protect tree health",
       "categoryId": "create-or-improve-woodland-and-protect-tree-health",
