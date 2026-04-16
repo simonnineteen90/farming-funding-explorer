@@ -1,0 +1,168 @@
+{
+  "purpose": "Labeled test set for evaluating scheme matching accuracy",
+  "generatedAt": "2026-04-16T00:00:00Z",
+  "testCases": [
+    {
+      "id": "test_001_egg_farmer_basic",
+      "farmerStatement": "I have 100 acres and I own chickens and hens which I sell the eggs for. I have natural water rivers on my farm as well.",
+      "location": null,
+      "expectedMatches": [
+        "laying-hen-housing-grant",
+        "farming-equipment-and-technology-fund",
+        "capital-grants",
+        "sustainable-farming-incentive"
+      ],
+      "shouldNotMatch": [
+        "calf-housing-grant",
+        "tree-health-pilot-scheme",
+        "landscape-recovery"
+      ],
+      "difficulty": "easy",
+      "notes": "Clear poultry + productivity intent, should surface housing grant"
+    },
+    {
+      "id": "test_002_cattle_dairy_farm",
+      "farmerStatement": "We run a 200-hectare dairy farm in the Lake District. Want to invest in slurry management infrastructure and improve animal welfare.",
+      "location": "Lake District",
+      "expectedMatches": [
+        "slurry-infrastructure-grant",
+        "animal-health-welfare-review",
+        "farming-equipment-and-technology-fund",
+        "farming-in-protected-landscapes"
+      ],
+      "shouldNotMatch": [
+        "laying-hen-housing-grant",
+        "water-management-grant"
+      ],
+      "difficulty": "medium",
+      "notes": "Dairy + slurry + protected landscape = FiPL + Slurry grant"
+    },
+    {
+      "id": "test_003_woodland_creator",
+      "farmerStatement": "I'm looking to plant trees and create new woodland on 5 hectares of marginal farmland. Interested in carbon sequestration benefits.",
+      "location": null,
+      "expectedMatches": [
+        "england-woodland-creation-grant",
+        "woodland-creation-planning-grant",
+        "regional-woodland-creation"
+      ],
+      "shouldNotMatch": [
+        "slurry-infrastructure-grant",
+        "laying-hen-housing-grant",
+        "animal-health-welfare-review"
+      ],
+      "difficulty": "easy",
+      "notes": "Clear woodland intent, carbon focus"
+    },
+    {
+      "id": "test_004_small_mixed_farm",
+      "farmerStatement": "50 acres mixed enterprise: sheep, some beef cattle, arable crops. I'm in an AONB. Want to improve soil health and reduce inputs.",
+      "location": "South West",
+      "expectedMatches": [
+        "sustainable-farming-incentive",
+        "countryside-stewardship-higher-tier",
+        "farming-in-protected-landscapes",
+        "capital-grants"
+      ],
+      "shouldNotMatch": [
+        "landscape-recovery",
+        "calf-housing-grant"
+      ],
+      "difficulty": "medium",
+      "notes": "Mixed farm + protected landscape + environment focus = CSHT + FiPL"
+    },
+    {
+      "id": "test_005_precision_agriculture",
+      "farmerStatement": "Running an intensive glasshouse vegetable operation. Want to invest in automation, sensors, and LED growing technology to boost efficiency.",
+      "location": null,
+      "expectedMatches": [
+        "farming-equipment-and-technology-fund",
+        "improving-farm-productivity-grant"
+      ],
+      "shouldNotMatch": [
+        "calf-housing-grant",
+        "tree-health-pilot-scheme"
+      ],
+      "difficulty": "medium",
+      "notes": "Horticulture + tech/automation = FETF + Improving Farm Productivity (solar/robots)"
+    },
+    {
+      "id": "test_006_large_collaborative",
+      "farmerStatement": "Three farms (1500 hectares combined) in partnership. We want to undertake large-scale peatland restoration and habitat recovery.",
+      "location": null,
+      "expectedMatches": [
+        "landscape-recovery",
+        "countryside-stewardship-higher-tier"
+      ],
+      "shouldNotMatch": [
+        "adding-value-grant",
+        "calf-housing-grant"
+      ],
+      "difficulty": "medium",
+      "notes": "Large scale + collaboration + habitat = Landscape Recovery (requires 500 ha min, groups)"
+    },
+    {
+      "id": "test_007_water_scarcity",
+      "farmerStatement": "I grow outdoor and covered crops. Facing drought seasons. Looking to build a storage reservoir and improve irrigation efficiency.",
+      "location": null,
+      "expectedMatches": [
+        "water-management-grant"
+      ],
+      "shouldNotMatch": [
+        "calf-housing-grant",
+        "slurry-infrastructure-grant"
+      ],
+      "difficulty": "medium",
+      "notes": "Water storage + irrigation = Water Management grant (now closed but historically relevant)"
+    },
+    {
+      "id": "test_008_diversification",
+      "farmerStatement": "Thinking of adding on-farm processing to my apple orchard. Want to build a small juice and cider production facility for local sales.",
+      "location": null,
+      "expectedMatches": [
+        "adding-value-grant"
+      ],
+      "shouldNotMatch": [
+        "calf-housing-grant",
+        "animal-health-welfare-review"
+      ],
+      "difficulty": "hard",
+      "notes": "Processing/marketing intent, Adding Value grant is closed but should be recognized"
+    },
+    {
+      "id": "test_009_research_innovation",
+      "farmerStatement": "We want to trial a new cover crop rotation system with a university research partner to improve soil carbon and reduce inputs.",
+      "location": null,
+      "expectedMatches": [
+        "farming-innovation-programme",
+        "sustainable-farming-incentive"
+      ],
+      "shouldNotMatch": [
+        "calf-housing-grant"
+      ],
+      "difficulty": "hard",
+      "notes": "Research + innovation + soil health intent = FIP + SFI"
+    },
+    {
+      "id": "test_010_existing_elm_holder",
+      "farmerStatement": "I already have a Countryside Stewardship agreement. Looking for additional funding to upgrade livestock housing and install solar panels.",
+      "location": null,
+      "expectedMatches": [
+        "capital-grants",
+        "farming-equipment-and-technology-fund",
+        "improving-farm-productivity-grant"
+      ],
+      "shouldNotMatch": [
+        "sustainable-farming-incentive"
+      ],
+      "difficulty": "hard",
+      "notes": "Existing agreement constraint + capital/tech = capital items + FETF (SFI may have restrictions)"
+    }
+  ],
+  "evaluationMetrics": {
+    "precision_at_3": "% of top 3 results that are in expectedMatches",
+    "recall_at_5": "% of expectedMatches returned in top 5",
+    "incorrect_open_rate": "% of returned schemes that are in shouldNotMatch or are closed",
+    "explainability_score": "% of results with >= 1 reason and >= 1 eligibility check"
+  }
+}
