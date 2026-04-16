@@ -26,17 +26,19 @@ function presentScheme(scheme) {
   };
 }
 
-function presentSearchPage({ input, schemes }) {
+function presentSearchPage({ input, schemes, errorMessage }) {
   const normalizedInput = typeof input === 'string' ? input.trim() : '';
   const presentedSchemes = Array.isArray(schemes) ? schemes.map(presentScheme) : [];
   const searched = normalizedInput.length > 0;
+  const normalizedErrorMessage = typeof errorMessage === 'string' ? errorMessage.trim() : '';
 
   return {
     pageTitle: 'Find farming funding',
     input: normalizedInput,
     searched,
     resultCount: presentedSchemes.length,
-    schemes: presentedSchemes
+    schemes: presentedSchemes,
+    errorMessage: normalizedErrorMessage
   };
 }
 

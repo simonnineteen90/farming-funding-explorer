@@ -3,6 +3,7 @@
 {% from "govuk/components/tag/macro.njk" import govukTag %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/footer/macro.njk" import govukFooter %}
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
 
 <!DOCTYPE html>
 <html lang="en" class="govuk-template govuk-template--rebranded">
@@ -28,27 +29,58 @@
       <h1 class="govuk-heading-xl">Find funding for your farm</h1>
       <p class="govuk-body">Describe what you need funding for and we will show you relevant schemes.</p>
 
-      <form method="post" action="/search" class="govuk-!-margin-bottom-8">
-        {{ govukTextarea({
-          id: "search-input",
-          name: "input",
-          label: {
-            text: "Describe your farm and what you need funding for",
-            classes: "govuk-label--m"
-          },
-          hint: {
-            text: "You can use natural language. For example: 'I have 100 acres of farm with hens and need help improving housing' or 'Mixed farm looking to plant hedgerows and improve soil health'"
-          },
-          rows: 6,
-          value: input
+      {% if errorMessage %}
+        {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+            {
+              text: errorMessage,
+              href: "#search-input"
+            }
+          ]
         }) }}
+      {% endif %}
+
+      <form method="post" action="/search" class="govuk-!-margin-bottom-8">
+        {% if errorMessage %}
+          {{ govukTextarea({
+            id: "search-input",
+            name: "input",
+            label: {
+              text: "Describe your farm and what you need funding for",
+              classes: "govuk-label--m"
+            },
+            hint: {
+              text: "You can use natural language. For example: 'I have 100 acres of farm with hens and need help improving housing' or 'Mixed farm looking to plant hedgerows and improve soil health'"
+            },
+            errorMessage: {
+              text: errorMessage
+            },
+            rows: 6,
+            value: input
+          }) }}
+        {% else %}
+          {{ govukTextarea({
+            id: "search-input",
+            name: "input",
+            label: {
+              text: "Describe your farm and what you need funding for",
+              classes: "govuk-label--m"
+            },
+            hint: {
+              text: "You can use natural language. For example: 'I have 100 acres of farm with hens and need help improving housing' or 'Mixed farm looking to plant hedgerows and improve soil health'"
+            },
+            rows: 6,
+            value: input
+          }) }}
+        {% endif %}
 
         {{ govukButton({
           text: "Search"
         }) }}
       </form>
 
-      {% if searched %}
+      {% if searched and not errorMessage %}
         {% if resultCount === 0 %}
           <p class="govuk-body">No schemes found.</p>
         {% else %}

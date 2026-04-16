@@ -3,6 +3,8 @@ const path = require('node:path');
 const nunjucks = require('nunjucks');
 const searchRoute = require('./routes/search.route');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 

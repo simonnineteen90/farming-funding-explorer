@@ -8,13 +8,21 @@
     "test": "jest",
     "test:e2e": "playwright test"
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/tests/e2e/"
+    ]
+  },
   "dependencies": {
+    "@github/copilot-sdk": "^0.2.2",
+    "dotenv": "^17.4.2",
     "express": "^4.21.0",
     "govuk-frontend": "^5.10.2",
     "nunjucks": "^3.2.4"
   },
   "devDependencies": {
-    "jest": "^30.3.0",
-    "@playwright/test": "^1.59.1"
+    "@playwright/test": "^1.59.1",
+    "jest": "^30.3.0"
   }
 }

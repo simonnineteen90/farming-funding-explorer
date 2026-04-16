@@ -7,22 +7,46 @@ const router = express.Router();
 router.get('/', (_req, res) => {
   const viewModel = searchPresenter.presentSearchPage({
     input: '',
-    schemes: []
+    schemes: [],
+    errorMessage: ''
   });
 
   res.render('search', viewModel);
 });
 
-router.post('/search', (req, res) => {
+function wantsJsonResponse(req) {
+  return req.accepts(['html', 'json']) === 'json';
+}
+
+router.post('/search', async (req, res, next) => {
   const input = typeof req.body.input === 'string' ? req.body.input : '';
-  const schemes = searchService.searchSchemes(input);
+  const returnJson = wantsJsonResponse(req);
 
-  const viewModel = searchPresenter.presentSearchPage({
-    input,
-    schemes
-  });
+  try {
+    const result = await searchService.searchSchemesFromNaturalLanguage(input);
 
-  res.render('search', viewModel);
+    if (returnJson) {
+      if (result.rejection) {
+        return res.status(400).json({
+          error: result.rejection.message,
+          code: result.rejection.reasonCode,
+          schemes: []
+        });
+      }
+
+      return res.json(result.schemes);
+    }
+
+    const viewModel = searchPresenter.presentSearchPage({
+      input,
+      schemes: result.schemes,
+      errorMessage: result.rejection ? result.rejection.message : ''
+    });
+
+    return res.render('search', viewModel);
+  } catch (error) {
+    return next(error);
+  }
 });
 
 module.exports = router;
