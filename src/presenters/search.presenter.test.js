@@ -59,6 +59,41 @@ describe('presentScheme URL allowlisting', () => {
   });
 });
 
+describe('presentScheme matchedKeywords', () => {
+  test('passes through matchedKeywords array', () => {
+    const result = presentScheme({
+      name: 'Test',
+      url: 'https://www.gov.uk/test',
+      status: 'open',
+      matchedKeywords: ['soil', 'hedgerows']
+    });
+    expect(result.matchedKeywords).toEqual(['soil', 'hedgerows']);
+  });
+
+  test('defaults matchedKeywords to empty array when missing', () => {
+    const result = presentScheme({ name: 'Test', status: 'open' });
+    expect(result.matchedKeywords).toEqual([]);
+  });
+
+  test('defaults matchedKeywords to empty array when not an array', () => {
+    const result = presentScheme({ name: 'Test', status: 'open', matchedKeywords: 'soil' });
+    expect(result.matchedKeywords).toEqual([]);
+  });
+});
+
+describe('presentSearchPage summary', () => {
+  test('passes summary through to view model', () => {
+    const summary = { bestMatch: { name: 'SFI', reason: 'Matches soil.' }, overallSummary: 'We found 1 scheme.' };
+    const result = presentSearchPage({ input: 'soil', schemes: [], summary });
+    expect(result.summary).toEqual(summary);
+  });
+
+  test('summary defaults to null when not provided', () => {
+    const result = presentSearchPage({ input: 'soil', schemes: [] });
+    expect(result.summary).toBeNull();
+  });
+});
+
 describe('presentSearchPage', () => {
   test('handles non-string input gracefully', () => {
     const result = presentSearchPage({ input: 123, schemes: [] });

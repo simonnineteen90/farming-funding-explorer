@@ -47,14 +47,16 @@ describe('POST /search route', () => {
 
     await handler(req, res, next);
 
-    expect(searchPresenter.presentSearchPage).toHaveBeenCalledWith({
-      input: 'soil health',
-      schemes: result.schemes,
-      availableStatuses: [],
-      selectedStatuses: [],
-      searched: true,
-      errorMessage: ''
-    });
+    expect(searchPresenter.presentSearchPage).toHaveBeenCalledWith(
+      expect.objectContaining({
+        input: 'soil health',
+        schemes: result.schemes,
+        availableStatuses: [],
+        selectedStatuses: [],
+        searched: true,
+        errorMessage: ''
+      })
+    );
     expect(res.render).toHaveBeenCalledWith('search', viewModel);
     expect(res.json).not.toHaveBeenCalled();
     expect(next).not.toHaveBeenCalled();
@@ -165,6 +167,48 @@ describe('POST /search route', () => {
     const call = searchPresenter.presentSearchPage.mock.calls[0][0];
     expect(call.schemes).toEqual([{ name: 'Open Scheme', status: 'open' }]);
     expect(call.selectedStatuses).toEqual(['open']);
+  });
+
+  test('includes summary in view model when results are found', async () => {
+    const handler = getPostSearchHandler();
+    const schemes = [{ name: 'SFI', status: 'open', matchedKeywords: ['soil', 'hedgerows'] }];
+    searchService.searchSchemesFromNaturalLanguage.mockResolvedValue({ schemes, rejection: null });
+    searchPresenter.presentSearchPage.mockReturnValue({ pageTitle: 'test' });
+
+    const req = {
+      body: { input: 'soil health' },
+      accepts: jest.fn().mockReturnValue('html')
+    };
+    const res = { render: jest.fn(), json: jest.fn(), status: jest.fn().mockReturnThis() };
+    const next = jest.fn();
+
+    await handler(req, res, next);
+
+    const call = searchPresenter.presentSearchPage.mock.calls[0][0];
+    expect(call.summary).not.toBeNull();
+    expect(call.summary.bestMatch.name).toBe('SFI');
+    expect(typeof call.summary.overallSummary).toBe('string');
+  });
+
+  test('summary is null when rejection is present', async () => {
+    const handler = getPostSearchHandler();
+    searchService.searchSchemesFromNaturalLanguage.mockResolvedValue({
+      schemes: [],
+      rejection: { reasonCode: 'DISALLOWED_INPUT', message: 'Blocked' }
+    });
+    searchPresenter.presentSearchPage.mockReturnValue({ pageTitle: 'test' });
+
+    const req = {
+      body: { input: 'bad input' },
+      accepts: jest.fn().mockReturnValue('html')
+    };
+    const res = { render: jest.fn(), json: jest.fn(), status: jest.fn().mockReturnThis() };
+    const next = jest.fn();
+
+    await handler(req, res, next);
+
+    const call = searchPresenter.presentSearchPage.mock.calls[0][0];
+    expect(call.summary).toBeNull();
   });
 
   test('truncates input longer than 1000 characters', async () => {
