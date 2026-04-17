@@ -142,7 +142,18 @@
         {% if resultCount === 0 %}
           <p class="govuk-body">No schemes found.</p>
         {% else %}
-          <h2 class="govuk-heading-l">{{ resultCount }} schemes found</h2>
+          <h2 class="govuk-heading-l">{{ resultCount }} scheme{{ 's' if resultCount !== 1 }} found</h2>
+
+          {% if summary %}
+            <p class="govuk-body">{{ summary.overallSummary }}</p>
+
+            {% if summary.bestMatch %}
+              <div class="govuk-inset-text">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Best match: {{ summary.bestMatch.name }}</h3>
+                <p class="govuk-body govuk-!-margin-bottom-0">{{ summary.bestMatch.reason }}</p>
+              </div>
+            {% endif %}
+          {% endif %}
 
           {% for scheme in schemes %}
             <section class="govuk-!-margin-bottom-6">

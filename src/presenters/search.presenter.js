@@ -29,7 +29,8 @@ function presentScheme(scheme) {
     url: isAllowedUrl(scheme.url) ? scheme.url : '#',
     statusKey,
     statusText: status.text,
-    statusClasses: status.classes
+    statusClasses: status.classes,
+    matchedKeywords: Array.isArray(scheme.matchedKeywords) ? scheme.matchedKeywords : []
   };
 }
 
@@ -43,7 +44,7 @@ function presentStatusOption(statusKey, selectedStatuses) {
   };
 }
 
-function presentSearchPage({ input, schemes, availableStatuses = [], selectedStatuses = [], searched = false }) {
+function presentSearchPage({ input, schemes, availableStatuses = [], selectedStatuses = [], searched = false, errorMessage = '', summary = null }) {
   const normalizedInput = typeof input === 'string' ? input.trim() : '';
   const presentedSchemes = Array.isArray(schemes) ? schemes.map(presentScheme) : [];
   const normalizedSelectedStatuses = Array.isArray(selectedStatuses)
@@ -65,7 +66,8 @@ function presentSearchPage({ input, schemes, availableStatuses = [], selectedSta
     resultCount: presentedSchemes.length,
     schemes: presentedSchemes,
     filters,
-    selectedStatusCount: normalizedSelectedStatuses.length
+    selectedStatusCount: normalizedSelectedStatuses.length,
+    summary: summary || null
   };
 }
 

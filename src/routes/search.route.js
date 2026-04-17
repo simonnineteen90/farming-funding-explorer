@@ -1,6 +1,7 @@
 const express = require('express');
 const searchService = require('../services/search.service');
 const searchPresenter = require('../presenters/search.presenter');
+const { summariseResults } = require('../services/summary.service');
 
 const router = express.Router();
 
@@ -67,13 +68,16 @@ router.post('/search', async (req, res, next) => {
       return res.json(schemes);
     }
 
+    const summary = searched && !result.rejection ? summariseResults(input, schemes) : null;
+
     const viewModel = searchPresenter.presentSearchPage({
       input,
       schemes,
       availableStatuses: searchService.getAvailableStatuses(),
       selectedStatuses,
       searched,
-      errorMessage: result.rejection ? result.rejection.message : ''
+      errorMessage: result.rejection ? result.rejection.message : '',
+      summary
     });
 
     return res.render('search', viewModel);
