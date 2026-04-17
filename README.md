@@ -1,6 +1,8 @@
-# Farming Funding Explorer
+# Farming Funding Explorer - Hackathon prototype
 
-A web app that helps farmers and land managers in England find relevant government funding schemes by describing their goals in plain English.
+This was built as a hackathon prototype for the [X-Gov AI Engineering Hackathon](https://github.com/Version1/ai-engineering-lab-hackathon-london-2026/). Alongside [Becky Ransome](https://github.com/Beckyrose200) and [Adam Kay](https://github.com/thousand-leaves). It is a working MVP but is not production-hardened — there is no authentication, no analytics, no rate limiting, and the dataset is a static snapshot.
+
+A web app that helps farmers and land managers in England find relevant government funding schemes by describing their goals in plain English. This app was inspired by the work of the FIND team on the Farming and Countryside Programme at Defra.
 
 ## The problem
 
@@ -36,6 +38,19 @@ No frontend frameworks, no build step, no database. Progressive enhancement — 
 ### Prerequisites
 
 - [Node.js](https://nodejs.org) (LTS recommended)
+
+### Environment variables
+
+| Variable   | Default | Description       |
+| ---------- | ------- | ----------------- |
+| `PORT`     | `3000`  | Server port       |
+| `NODE_ENV` | —       | Set to `production` to enable template caching |
+| `USE_COPILOT` | FALSE       | enables copilot integration for extracting keywords from natural language |
+| `COPILOT_MODEL` | gpt-5-mini| default model for use with copilot |
+| `GH_TOKEN` | —       | required to integrate with copilot sdk |
+
+
+Add the above to a `.env` file.
 
 ### Install and run
 
@@ -122,15 +137,4 @@ The core logic lives in `src/services/match-to-schemes.js`:
 3. **Deduplicate** — each input token contributes a maximum of 1 point to prevent score inflation
 4. **Rank** — schemes are sorted by score descending; top 5 returned
 
-## Environment variables
 
-| Variable   | Default | Description       |
-| ---------- | ------- | ----------------- |
-| `PORT`     | `3000`  | Server port       |
-| `NODE_ENV` | —       | Set to `production` to enable template caching |
-
-No `.env` file needed — the app works out of the box.
-
-## Hackathon prototype
-
-This was built as a hackathon prototype. It is a working MVP but is not production-hardened — there is no authentication, no analytics, no rate limiting, and the dataset is a static snapshot.
